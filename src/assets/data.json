@@ -1,0 +1,48 @@
+---
+layout: null
+settings: 
+  git:
+    owner: crowecawcaw
+    repo: editable
+    branch: master
+  imageDirectory: /images
+  defaultSchema:
+    layout:
+      title: Layout
+      type: text
+    title:
+      title: Title
+      type: text
+  siteUrl: 'https://crowecawcaw.github.io/editable/'
+---
+{
+  "map": {
+    "pages": [
+      {% for page in site.pages %}
+        {% if page.title %}
+          {
+            {% if page.permalink %}"permalink": "{{page.permalink}}",{% endif %}
+            "title": "{{page.title}}",
+            "path": "{{page.path}}",
+            "url": "{{page.url}}"
+          },
+        {% endif %}
+      {% endfor %}
+      {}
+    ],
+    "posts": [
+      {% for page in site.posts %}
+        {
+          {% if page.permalink %}"permalink": "{{page.permalink}}",{% endif %}
+          {% if page.title %}"title": "{{page.title}}",{% endif %}
+          "date": "{{page.date}}",
+          "path": "{{page.path}}",
+          "url": "{{page.url}}"
+        },
+      {% endfor %}
+      {}
+    ]
+  },
+  "settings": {{page.settings | jsonify}},
+  "buildTime": {{'now' | date: '%s' }}
+}

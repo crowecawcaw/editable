@@ -868,3 +868,11 @@
   font-size: 16px;
   font-weight: bold;
 }
+
+.editable {
+  box-shadow:inset 0px 0px 0px 5px rgba(76, 175, 80, .5);
+  transition: box-shadow .2s;
+}
+.editable:hover {
+  box-shadow:inset 0px 0px 0px 5px rgba(76, 175, 80, 1);
+}

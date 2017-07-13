@@ -20,11 +20,15 @@ import Login from './Login.jsx'
 import GitApi from './GitApi.jsx'
 import { getSiteData } from './utils.jsx'
 
-require('./main.scss')
 require('./index.html')
-//require('file-loader?name=[name].[ext]!./quill.css')
-//import 'normalize.css/normalize.css';
-//import 'font-awesome/css/font-awesome.css';
+require('file-loader?name=assets/[name].[ext]!./assets/quill.css')
+
+import './assets/material-dashboard.css'
+import './assets/demo.css'
+import './main.scss'
+
+import 'font-awesome/css/font-awesome.css';
+
 import 'react-mde/lib/styles/react-mde.scss';
 import 'react-mde/lib/styles/react-mde-command-styles.scss';
 import 'react-mde/lib/styles/markdown-default-theme.scss';
