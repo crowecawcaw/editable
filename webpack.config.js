@@ -1,5 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 module.exports = {
   context: path.resolve(__dirname, './src'),
@@ -7,7 +8,7 @@ module.exports = {
     index: './index.jsx',
   },
   output: {
-    path: path.resolve(__dirname, './public'),
+    path: path.resolve(__dirname, './build'),
     filename: '[name].bundle.js',
   },
   /*resolve: {
@@ -45,6 +46,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en/)
+    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en/),
+    new CleanWebpackPlugin(['build'], {}),
   ]
 }
